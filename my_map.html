@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Geo77 MAP </title>
+	<title>GEO-77 map</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+	integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+	crossorigin=""/>
+
+	<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+	integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+	crossorigin=""></script>
 </head>
+
 
 <body>
 
-<h1> Michael Erb </h1>
-<p> some paragraph </p>
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+<p>And here comes the map:</p>
+<div id="mapid" style="width: 600px; height: 400px; position: relative;"></div>
+
+<script>
+
+	var mymap = L.map('mapid').setView([48.524, 9.0556], 14);
+
+	var OSMbackground = L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>' + ' GEO-77'
+	}).addTo(mymap);
+
+	var markerBota = L.marker([48.523549, 9.057546]).addTo(mymap);
+	
+	markerBota.bindPopup("<p>This is the Botanical Garden</p>");
+	
+</script>
+	
+
 
 
 </body>
